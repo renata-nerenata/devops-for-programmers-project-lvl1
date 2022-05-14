@@ -20,13 +20,15 @@ prepare-env:
 	cp -n .env.example .env
 
 compose:
-	docker compose up -d
+	docker-compose up -d
 
 compose-production:
-	docker compose --file docker-compose.yml run production
+	docker-compose --file docker-compose.yml run production
 
 compose-build:
-	docker compose build
+	docker-compose build
 
 ci:
-	set-env compose-test
+	docker-compose -f docker-compose.yml build --no-cache app
+	docker-compose -f docker-compose.yml up --abort-on-container-exit
+	docker-compose -f docker-compose.yml push app
