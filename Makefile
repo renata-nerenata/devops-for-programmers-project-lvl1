@@ -1,33 +1,20 @@
-setup:
-	npm ci
+build:
+	docker-compose -f docker-compose.yml build --no-cache app
 
-start:
-	npm start
-
-dev:
-	npm run dev
-
-lint:
-	npx eslint .
 
 test:
-	npm test
+	docker-compose -f docker-compose.yml run --rm app npm test
 
-heroku-logs:
-	heroku logs --tail
 
-prepare-env:
-	cp -n .env.example .env
+up:
+	docker-compose -f docker-compose.yml up --abort-on-container-exit
 
-compose:
-	docker-compose up -d
 
-compose-production:
-	docker-compose --file docker-compose.yml run production
+push:
+	docker-compose -f docker-compose.yml push app
 
-compose-build:
-	docker-compose build
 
 ci:
 	docker-compose -f docker-compose.yml build --no-cache app
 	docker-compose -f docker-compose.yml up --abort-on-container-exit
+	docker-compose -f docker-compose.yml push app
