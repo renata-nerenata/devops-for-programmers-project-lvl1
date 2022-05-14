@@ -31,4 +31,3 @@ compose-build:
 ci:
 	docker-compose -f docker-compose.yml build --no-cache app
 	docker-compose -f docker-compose.yml up --abort-on-container-exit
-	docker-compose -f docker-compose.yml push app
