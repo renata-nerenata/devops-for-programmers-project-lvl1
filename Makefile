@@ -27,3 +27,6 @@ compose-production:
 
 compose-build:
 	docker compose build
+
+ci:
+	set-env compose-test
