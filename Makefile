@@ -11,10 +11,10 @@ up:
 
 
 push:
-	docker-compose -f docker-compose.yml build --no-cache app
 	docker-compose -f docker-compose.yml push app
 
 
 ci:
 	docker-compose -f docker-compose.yml build --no-cache app
-	docker-compose -f docker-compose.yml up --exit-code-from app --abort-on-container-exit
+	docker-compose -f docker-compose.yml up --abort-on-container-exit
+	docker-compose -f docker-compose.yml push app
