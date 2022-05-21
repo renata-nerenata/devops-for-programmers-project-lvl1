@@ -11,6 +11,7 @@ up:
 
 
 push:
+	docker-compose -f docker-compose.yml build --no-cache app
 	docker-compose -f docker-compose.yml push app
 
 

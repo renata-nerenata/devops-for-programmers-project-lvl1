@@ -10,6 +10,8 @@ services:
       POSTGRES_USER: ${DATABASE_USERNAME}
 
   app:
+    env_file:
+      - ./app/.env.example
     build:
       context: .
       dockerfile: Dockerfile.production
