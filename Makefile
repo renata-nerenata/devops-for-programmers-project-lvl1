@@ -15,6 +15,7 @@ push:
 
 
 ci:
+	cp .env.example .env
 	docker-compose -f docker-compose.yml build app
-	docker-compose -f docker-compose.yml up --exit-code-from app
-	docker-compose -f docker-compose.yml push app
+	docker-compose -f docker-compose.yml up --abort-on-container-exit --exit-code-from app
+	#docker-compose -f docker-compose.yml push app
