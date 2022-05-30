@@ -5,11 +5,11 @@ services:
 
   app:
     env_file:
-      - app/.env.example
+      - app/.env
     build:
       context: .
       dockerfile: Dockerfile.production
-    image: renatanerenata/devops-for-programmers-project-lvl1
+    image: renatanerenata/devops-for-programmers-project-lvl1:latest
     ports:
       - "8080:8080"
     command: npm test
