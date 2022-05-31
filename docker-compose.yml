@@ -12,7 +12,7 @@ services:
     image: renatanerenata/devops-for-programmers-project-lvl1:latest
     ports:
       - "8080:8080"
-    command: bash -c 'sleep 3 && npm test'
+    command: bash -c 'sleep 5 && npm test'
 
   db:
     image: postgres:13.4-alpine
